@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PayPoint Solution helps Malaysian businesses accept card payments with fast settlement, transparent MDR, and modern terminals." />
+  <title>PayPoint Solution — Card Payment Terminals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f1a;               /* deep fintech dark */
+      --card:rgba(255,255,255,.06);
+      --muted:#9aa4b2;
+      --text:#ffffff;
+      --accent:#7c3aed;
+      --accent2:#22c55e;
+      --line:rgba(255,255,255,.14);
+      --shadow: 0 30px 80px rgba(0,0,0,.45);
+      --radius: 20px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(124,58,237,.35), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, rgba(34,197,94,.25), transparent 55%),
+        linear-gradient(180deg, #0b0f1a 0%, #0f172a 100%);
+      overflow-x:hidden;
+    }
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+
+    /* Top bar */
+    .top{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(12px);
+      background: rgba(11,15,26,.75);
+      border-bottom:1px solid var(--line);
+    }
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:18px;
+      padding:14px 0;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(34,197,94,1));
+      box-shadow: 0 12px 30px rgba(124,58,237,.25);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:before{
+      content:"";
+      position:absolute; inset:-10px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 40%),
+                  radial-gradient(circle at 70% 70%, rgba(255,255,255,.18), transparent 45%);
+      transform: rotate(12deg);
+    }
+    .brand span{opacity:.92}
+    .links{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+    .links a{color:rgba(230,234,242,.85); font-weight:600; font-size:14px; opacity:.9}
+    .links a:hover{opacity:1}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:700;
+      gap:10px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(34,197,94,.95));
+      border-color: rgba(255,255,255,.15);
+      box-shadow: 0 18px 55px rgba(124,58,237,.22);
+    }
+    .btn.primary:hover{transform: translateY(-2px)}
+
+    /* Hero */
+    .hero{padding:54px 0 26px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .tag{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color:rgba(230,234,242,.92);
+      font-weight:700;
+      font-size:13px;
+      width: fit-content;
+    }
+    .dot{width:8px; height:8px; border-radius:999px; background:var(--accent2); box-shadow: 0 0 0 6px rgba(34,197,94,.15)}
+    h1{font-size: clamp(34px, 4.2vw, 56px); line-height:1.06; margin:14px 0 14px; letter-spacing:-.02em}
+    .sub{font-size:16px; line-height:1.7; color:rgba(230,234,242,.82); margin:0 0 22px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin: 18px 0 18px}
+    .fine{color:rgba(152,162,179,.95); font-size:13px; line-height:1.6}
+
+    .heroCard{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .heroCard .pad{padding:18px}
+    .miniTitle{font-weight:800; letter-spacing:.2px; margin:0 0 10px}
+    .kpis{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px}
+    .kpi{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(15,26,48,.55);
+      padding:12px;
+    }
+    .kpi .big{font-size:22px; font-weight:900; letter-spacing:-.01em}
+    .kpi .small{font-size:12px; color:rgba(152,162,179,.95); margin-top:4px}
+    .diagram{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top:14px;
+    }
+    .pill{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:12px 12px;
+      border-radius: 16px;
+      border: 1px dashed rgba(255,255,255,.18);
+      background: rgba(255,255,255,.03);
+      font-weight:700;
+      color:rgba(230,234,242,.88);
+    }
+    .arrow{opacity:.75}
+
+    /* Sections */
+    section{padding: 26px 0}
+    .sectionTitle{font-size:22px; margin:0 0 12px; letter-spacing:-.01em}
+    .sectionSub{margin:0 0 18px; color:var(--muted); line-height:1.7}
+
+    .cards{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    .card{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: var(--card);
+      padding:16px;
+      box-shadow: var(--shadow);
+      min-height: 140px;
+    }
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.7}
+
+    .two{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+      align-items:stretch;
+    }
+
+    /* Pricing */
+    .pricing{
+      display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px;
+    }
+    .price{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .price.featured{
+      border-color: rgba(34,197,94,.35);
+      background:
+        radial-gradient(600px 200px at 50% 0%, rgba(34,197,94,.22), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+    .badge{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(34,197,94,.16);
+      border:1px solid rgba(34,197,94,.25);
+      color: rgba(230,234,242,.95);
+      font-weight:800;
+      font-size:12px;
+      margin-bottom:10px;
+    }
+    .price h3{margin:0 0 6px}
+    .rate{font-size:30px; font-weight:900; letter-spacing:-.02em; margin: 10px 0 6px}
+    .rate span{font-size:13px; font-weight:700; color:rgba(152,162,179,.95)}
+    ul{margin: 10px 0 0; padding:0; list-style:none; display:grid; gap:10px}
+    li{display:flex; gap:10px; align-items:flex-start; color:rgba(230,234,242,.80); font-size:13px; line-height:1.55}
+    .tick{width:18px; height:18px; border-radius:8px; background: rgba(124,58,237,.18); border:1px solid rgba(124,58,237,.25); display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto}
+
+    /* FAQ */
+    details{
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      padding: 12px 14px;
+    }
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:800}
+    details p{margin:10px 0 0; color:rgba(230,234,242,.78); line-height:1.7; font-size:13px}
+
+    /* Contact */
+    .contact{
+      display:grid; grid-template-columns: 1.05fr .95fr; gap:14px;
+    }
+    form{
+      display:grid; gap:10px;
+    }
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(15,26,48,.55);
+      color: var(--text);
+      outline:none;
+      font-family:inherit;
+    }
+    textarea{min-height:120px; resize:vertical}
+    input::placeholder, textarea::placeholder{color:rgba(152,162,179,.85)}
+
+    footer{padding: 22px 0 36px; color:rgba(152,162,179,.92); font-size:13px}
+    .hr{height:1px; background: var(--line); margin: 18px 0}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .grid{grid-template-columns: 1fr;}
+      .cards{grid-template-columns: 1fr;}
+      .pricing{grid-template-columns: 1fr;}
+      .two{grid-template-columns: 1fr;}
+      .contact{grid-template-columns: 1fr;}
+      .links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="PayPoint Solution home">
+          <div class="logo" aria-hidden="true"></div>
+          <span>PayPoint Solution</span>
+        </a>
+        <div class="links" aria-label="site navigation">
+          <a href="#benefits">Benefits</a>
+          <a href="#how">How it works</a>
+          <a href="#plans">Plans</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a class="btn primary" href="#contact">Get a quote →</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top" class="wrap">
+    <header class="hero">
+      <div class="grid">
+        <div>
+          <div class="tag"><span class="dot" aria-hidden="true"></span> Card acceptance made simple for Malaysian businesses</div>
+          <h1>Upgrade your payment terminal.
+            <br/>Lower fees. Faster settlement. Less headache.</h1>
+          <p class="sub">
+            PayPoint Solution helps merchants accept card payments smoothly—whether you run a café, clinic, retail outlet, or multi-branch chain.
+            Get modern terminals, transparent MDR, and support that actually picks up.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#contact">Request MDR proposal</a>
+            <a class="btn" href="#plans">See example plans</a>
+          </div>
+          <p class="fine">
+            Typical payout: <b>T+2</b> (subject to approval). No fluff—just clear rates, quick onboarding, and reliable settlement.
+          </p>
+        </div>
+
+        <aside class="heroCard" aria-label="summary card">
+          <div class="pad">
+            <p class="miniTitle">What you get</p>
+            <div class="kpis">
+              <div class="kpi">
+                <div class="big">Better MDR</div>
+                <div class="small">Offer tailored to your volume</div>
+              </div>
+              <div class="kpi">
+                <div class="big">T+2</div>
+                <div class="small">Fast, predictable settlement</div>
+              </div>
+              <div class="kpi">
+                <div class="big">Multi-outlet</div>
+                <div class="small">Rollout for 2 → 200 branches</div>
+              </div>
+              <div class="kpi">
+                <div class="big">Support</div>
+                <div class="small">Setup, training, and after-sales</div>
+              </div>
+            </div>
+
+            <div class="diagram" aria-label="simple flow">
+              <div class="pill">Customer taps / inserts card <span class="arrow">→</span></div>
+              <div class="pill">Terminal approves securely <span class="arrow">→</span></div>
+              <div class="pill">You get paid (T+2) <span class="arrow">✓</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="benefits">
+      <h2 class="sectionTitle">Why merchants switch to PayPoint Solution</h2>
+      <p class="sectionSub">Built for finance teams that care about MDR, settlement reliability, and clean reconciliation.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Lower total cost</h3>
+          <p>Competitive MDR packages, with options that scale for higher transaction volume and multiple outlets.</p>
+        </div>
+        <div class="card">
+          <h3>Reliable settlement</h3>
+          <p>Stability-focused setup guidance (Wi‑Fi / SIM / LAN) so you avoid the “can’t settle” nightmare.</p>
+        </div>
+        <div class="card">
+          <h3>Multi-outlet rollout</h3>
+          <p>Standardized deployment checklist and merchant onboarding flow to move fast without chaos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="two">
+        <div class="card">
+          <h3>How it works</h3>
+          <p>
+            1) Share your current MDR & monthly volume<br/>
+            2) We propose a better package (where possible)<br/>
+            3) Submit documents for approval<br/>
+            4) Terminal setup + training<br/>
+            5) Go live & start accepting cards
+          </p>
+        </div>
+        <div class="card">
+          <h3>Best-fit industries</h3>
+          <p>
+            F&B • Retail • Clinics • Beauty • Services • Education • Jewelry • Mini-marts • Multi-branch chains
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans">
+      <h2 class="sectionTitle">Example plans (customizable)</h2>
+      <p class="sectionSub">Final MDR depends on approval, business type, and transaction volume. These are common starting points.</p>
+      <div class="pricing">
+        <div class="price">
+          <h3>Starter</h3>
+          <div class="rate">Transparent<span> / simple setup</span></div>
+          <ul>
+            <li><span class="tick">✓</span> Suitable for single outlet</li>
+            <li><span class="tick">✓</span> Card acceptance terminal</li>
+            <li><span class="tick">✓</span> Settlement tracking guidance</li>
+          </ul>
+        </div>
+        <div class="price featured">
+          <div class="badge">Most Popular</div>
+          <h3>Growth</h3>
+          <div class="rate">Better MDR<span> / scalable</span></div>
+          <ul>
+            <li><span class="tick">✓</span> Optimized for higher volume</li>
+            <li><span class="tick">✓</span> Multi-outlet deployment support</li>
+            <li><span class="tick">✓</span> Finance-friendly reconciliation tips</li>
+          </ul>
+        </div>
+        <div class="price">
+          <h3>Enterprise</h3>
+          <div class="rate">Custom<span> / chain rollout</span></div>
+          <ul>
+            <li><span class="tick">✓</span> 10+ outlets</li>
+            <li><span class="tick">✓</span> Dedicated rollout checklist</li>
+            <li><span class="tick">✓</span> Optional POS integration discussion</li>
+          </ul>
+        </div>
+      </div>
+      <p class="fine" style="margin-top:12px;">
+        Tip: If you have your current provider’s MDR table, send it—we’ll try to beat it (or match + improve service/settlement experience).
+      </p>
+    </section>
+
+    <section id="faq">
+      <h2 class="sectionTitle">FAQ</h2>
+      <div>
+        <details>
+          <summary>What do you need from me to propose MDR?</summary>
+          <p>Business type, estimated monthly card sales volume, number of outlets, and your current MDR (if available).</p>
+        </details>
+        <details>
+          <summary>How fast can we go live?</summary>
+          <p>Depends on document completeness and approval flow. Once approved, setup and training can be arranged quickly.</p>
+        </details>
+        <details>
+          <summary>Can you support multi-outlet onboarding?</summary>
+          <p>Yes—standard deployment checklist, outlet-by-outlet tracking, and training materials so your team stays aligned.</p>
+        </details>
+        <details>
+          <summary>Do you support POS integration?</summary>
+          <p>We can discuss your POS environment and options during onboarding. Some integrations may involve third-party work or fees depending on your POS vendor.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="sectionTitle">Request a quote</h2>
+      <p class="sectionSub">Share the basics and we’ll reply with a proposed MDR package and next steps.</p>
+      <div class="contact">
+        <div class="card">
+          <h3>Send your details</h3>
+          <form onsubmit="return false;" aria-label="quote request form">
+            <input id="biz" placeholder="Business name" autocomplete="organization" />
+            <input id="industry" placeholder="Industry (e.g., F&B, clinic, retail)" />
+            <input id="outlets" placeholder="Number of outlets" inputmode="numeric" />
+            <input id="volume" placeholder="Estimated monthly card volume (RM)" inputmode="decimal" />
+            <input id="contactName" placeholder="Your name" autocomplete="name" />
+            <input id="phone" placeholder="Phone / WhatsApp" autocomplete="tel" />
+            <textarea id="note" placeholder="Optional: current MDR table, current provider, pain points (e.g., settlement issues)"></textarea>
+            <button class="btn primary" id="sendBtn" type="button">Email my request →</button>
+            <div class="fine">This opens your email app with a pre-filled message. You can also replace this section with a WhatsApp link or embedded form later.</div>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Prefer WhatsApp?</h3>
+          <p>
+            Message us directly on WhatsApp for a faster response.
+            <br/><br/>
+            <a class="btn primary" href="https://wa.me/60166607698?text=Hi%20PayPoint%20Solution%2C%20I%20would%20like%20to%20enquire%20about%20card%20payment%20terminal%20and%20MDR%20rates." target="_blank" rel="noopener">
+              Chat on WhatsApp →
+            </a>
+            <br/><br/>
+            <span style="opacity:.9; font-weight:700;">+60 16‑660 7698</span>
+          </p>
+          <div class="hr"></div>
+          <p class="fine">
+            Pro tip: Keep your first reply finance-friendly:
+            <br/>• Ask for current MDR table
+            <br/>• Ask for monthly card volume
+            <br/>• Confirm payout preference
+            <br/>• Confirm outlet count
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="hr"></div>
+      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center;">
+        <div>© <span id="year"></span> PayPoint Solution. All rights reserved.</div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="#top" style="opacity:.9; font-weight:700;">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mailto builder (no backend needed)
+    const byId = (id) => document.getElementById(id);
+
+    function clean(v){ return (v || '').toString().trim(); }
+
+    function buildMail(){
+      const biz = clean(byId('biz').value);
+      const industry = clean(byId('industry').value);
+      const outlets = clean(byId('outlets').value);
+      const volume = clean(byId('volume').value);
+      const contactName = clean(byId('contactName').value);
+      const phone = clean(byId('phone').value);
+      const note = clean(byId('note').value);
+
+      const subject = `MDR Proposal Request — ${biz || 'Merchant'}`;
+      const bodyLines = [
+        'Hi PayPoint Solution,',
+        '',
+        'I would like to request an MDR proposal for card payment acceptance terminal.',
+        '',
+        `Business Name: ${biz || '-'}`,
+        `Industry: ${industry || '-'}`,
+        `Number of Outlets: ${outlets || '-'}`,
+        `Estimated Monthly Card Volume (RM): ${volume || '-'}`,
+        `Contact Person: ${contactName || '-'}`,
+        `Phone/WhatsApp: ${phone || '-'}`,
+        '',
+        'Notes / Current MDR / Pain points:',
+        note || '-',
+        '',
+        'Thank you.'
+      ];
+
+      return {
+        subject,
+        body: bodyLines.join('\n')
+      };
+    }
+
+    // TODO: Replace with your real email address
+    const TO_EMAIL = 'mnameer18@gmail.com';
+
+    byId('sendBtn').addEventListener('click', () => {
+      const { subject, body } = buildMail();
+      const mailto = `mailto:${encodeURIComponent(TO_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
