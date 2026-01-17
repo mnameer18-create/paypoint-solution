@@ -91,14 +91,14 @@
     }
     .btn.primary:hover{transform: translateY(-2px)}
 
-    /* Top-left floating CTA */
-    .top-cta{
-      position: fixed;
-      top: 18px;
-      left: 24px;
-      z-index: 20;
-    }
-
+    /* Top-right floating CTA */
+.top-cta{
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  left: auto;
+  z-index: 20;
+}
     /* Hero */
     .hero{padding:54px 0 26px}
     .grid{
@@ -257,7 +257,11 @@
       .two{grid-template-columns: 1fr;}
       .contact{grid-template-columns: 1fr;}
       .links{display:none}
-      .top-cta{left: 12px; top: 12px;}
+      .top-cta{
+  right: 12px;
+  left: auto;
+  top: 12px;
+}
     }
   </style>
 </head>
