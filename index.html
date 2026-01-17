@@ -10,14 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0f1a;               /* deep fintech dark */
-      --card:rgba(255,255,255,.06);
-      --muted:#9aa4b2;
+      /* PayPoint Solution brand colours (yellow + black) */
+      --bg:#0b0b0b;
+      --card:rgba(255,255,255,.08);
+      --muted:#c7c7c7;
       --text:#ffffff;
-      --accent:#7c3aed;
-      --accent2:#22c55e;
-      --line:rgba(255,255,255,.14);
-      --shadow: 0 30px 80px rgba(0,0,0,.45);
+      --accent:#f5c400;          /* PayPoint yellow */
+      --accent2:#f5c400;
+      --line:rgba(255,255,255,.18);
+      --shadow: 0 30px 80px rgba(0,0,0,.55);
       --radius: 20px;
       --max: 1120px;
     }
@@ -27,9 +28,9 @@
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 500px at 15% 10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(900px 500px at 85% 20%, rgba(34,197,94,.25), transparent 55%),
-        linear-gradient(180deg, #0b0f1a 0%, #0f172a 100%);
+        radial-gradient(900px 500px at 20% 10%, rgba(245,196,0,.25), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(245,196,0,.15), transparent 55%),
+        linear-gradient(180deg, #0b0b0b 0%, #141414 100%);
       overflow-x:hidden;
     }
     }
@@ -45,37 +46,41 @@
     }
     }
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:18px;
+      display:flex;
+      align-items:center;
       padding:14px 0;
     }
+    .brand{margin-right:20px;}
+    .links{display:flex; gap:18px; align-items:center; flex-wrap:wrap;}
+    .nav-cta{margin-left:auto;}
     .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
-    .logo{
-      width:38px; height:38px; border-radius:14px;
-      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(34,197,94,1));
-      box-shadow: 0 12px 30px rgba(124,58,237,.25);
-      position:relative;
-      overflow:hidden;
-    }
-    .logo:before{
-      content:"";
-      position:absolute; inset:-10px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 40%),
-                  radial-gradient(circle at 70% 70%, rgba(255,255,255,.18), transparent 45%);
-      transform: rotate(12deg);
+    .logoImg{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      object-fit:contain;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      padding:6px;
     }
     .brand span{opacity:.92}
     .links{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
-    .links a{color:rgba(230,234,242,.85); font-weight:600; font-size:14px; opacity:.9}
+    .links a{color:rgba(255,255,255,.86); font-weight:700; font-size:14px; opacity:.9}
     .links a:hover{opacity:1}
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:12px 16px;
       border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      font-weight:800;
+      gap:10px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      cursor:pointer;
+    }
       font-weight:700;
       gap:10px;
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
@@ -83,9 +88,20 @@
     }
     .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18)}
     .btn.primary{
-      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(34,197,94,.95));
-      border-color: rgba(255,255,255,.15);
-      box-shadow: 0 18px 55px rgba(124,58,237,.22);
+      background: linear-gradient(135deg, #f5c400, #ffd84d);
+      color:#0b0b0b;
+      border-color: rgba(255,255,255,.25);
+      box-shadow: 0 18px 55px rgba(245,196,0,.35);
+    }
+    .btn.primary:hover{transform: translateY(-2px)}
+
+    /* Top-right floating CTA */
+    /* Top-left floating CTA */
+    .top-cta{
+      position: fixed;
+      top: 18px;
+      left: 24px;
+      z-index: 20;
     }
     .btn.primary:hover{transform: translateY(-2px)}
 
@@ -258,38 +274,38 @@
     <div class="wrap">
       <div class="nav">
         <a class="brand" href="#top" aria-label="PayPoint Solution home">
-          <div class="logo" aria-hidden="true"></div>
-          <span>PayPoint Solution</span>
+          <img class="logoImg" src="Paypoint.png" alt="PayPoint Solution logo" />
         </a>
         <div class="links" aria-label="site navigation">
+          <a href="#powered">Powered by GP</a>
           <a href="#benefits">Benefits</a>
           <a href="#how">How it works</a>
           <a href="#plans">Plans</a>
           <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </div>
-        <a class="btn primary" href="#contact">Get a quote →</a>
-      </div>
     </div>
+    <a class="btn primary top-cta" href="#contact">Get MDR proposal →</a>
+  </div>
   </div>
 
   <main id="top" class="wrap">
     <header class="hero">
       <div class="grid">
         <div>
-          <div class="tag"><span class="dot" aria-hidden="true"></span> Card acceptance made simple for Malaysian businesses</div>
-          <h1>Upgrade your payment terminal.
-            <br/>Lower fees. Faster settlement. Less headache.</h1>
+          <div class="tag"><span class="dot" aria-hidden="true"></span> Referral partner for Global Payments (GP) in Malaysia</div>
+          <h1>Get Global Payments-grade terminals.
+            <br/>PayPoint handles the onboarding.</h1>
           <p class="sub">
-            PayPoint Solution helps merchants accept card payments smoothly—whether you run a café, clinic, retail outlet, or multi-branch chain.
-            Get modern terminals, transparent MDR, and support that actually picks up.
+            PayPoint Solution is your local point-of-contact to onboard merchants onto <b>Global Payments (GP)</b> — the global payment technology provider that supplies the terminals, processing, settlement and payment rails.
+            We help you compare MDR, collect the required details, and move you to go-live fast — whether you run a café, clinic, retail outlet, or a multi-branch chain.
           </p>
           <div class="cta">
             <a class="btn primary" href="#contact">Request MDR proposal</a>
             <a class="btn" href="#plans">See example plans</a>
           </div>
           <p class="fine">
-            Typical payout: <b>T+2</b> (subject to approval). No fluff—just clear rates, quick onboarding, and reliable settlement.
+            Typical payout: <b>T+2</b> (subject to approval). <b>PayPoint Solution is a referral/onboarding partner</b>; merchant acquiring, terminals and payment processing are provided by <b>Global Payments</b>.
           </p>
         </div>
 
@@ -324,6 +340,65 @@
         </aside>
       </div>
     </header>
+
+    <section id="powered">
+      <h2 class="sectionTitle">Powered by Global Payments</h2>
+      <p class="sectionSub">Global scale. Local support. Enterprise-grade reliability — delivered through one simple onboarding with PayPoint.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>5M merchant accounts</h3>
+          <p>Trusted at massive scale to keep payments safe and seamless.</p>
+        </div>
+        <div class="card">
+          <h3>73B merchant transactions / year</h3>
+          <p>High-volume processing experience across 100+ industries.</p>
+        </div>
+        <div class="card">
+          <h3>1,500 financial institutions</h3>
+          <p>Deep banking relationships and robust acquiring capabilities.</p>
+        </div>
+      </div>
+
+      <div class="two" style="margin-top:14px;">
+        <div class="card">
+          <h3>Global reach, local support</h3>
+          <p>
+            • Operating in <b>100+</b> countries<br/>
+            • Boots on the ground in <b>38</b> countries<br/>
+            • Fortune <b>500</b> company
+          </p>
+        </div>
+        <div class="card">
+          <h3>Supported payment methods (Malaysia)</h3>
+          <p>
+            Visa • Mastercard • UnionPay • JCB<br/>
+            Alipay • WeChat Pay • Apple Pay<br/>
+            (and more options available)
+          </p>
+        </div>
+      </div>
+
+      <div class="two" style="margin-top:14px;">
+        <div class="card">
+          <h3>Why Global Payments</h3>
+          <p>
+            <b>Stay ahead</b> with agile technology that adapts to changing needs.<br/>
+            <b>Get help</b> every step of the way from experts — wherever you are.<br/>
+            <b>Scale up</b> with the resources and connections of a global leader.
+          </p>
+        </div>
+        <div class="card">
+          <h3>What PayPoint does for you</h3>
+          <p>
+            • Assess your current MDR & monthly volume<br/>
+            • Propose GP-aligned package (best possible outcome)<br/>
+            • Guide documents & onboarding checklist<br/>
+            • Coordinate setup, training & go-live support
+          </p>
+        </div>
+      </div>
+    </section>
 
     <section id="benefits">
       <h2 class="sectionTitle">Why merchants switch to PayPoint Solution</h2>
@@ -468,9 +543,19 @@
 
     <footer>
       <div class="hr"></div>
-      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center;">
-        <div>© <span id="year"></span> PayPoint Solution. All rights reserved.</div>
-        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:flex-start;">
+        <div>
+          © <span id="year"></span> PayPoint Solution. All rights reserved.
+          <br/><br/>
+          <span style="font-size:12px; color:var(--muted); line-height:1.6;">
+            <b>Legal Disclaimer:</b><br/>
+            PayPoint Solution acts solely as a <b>sales and onboarding referral partner</b> for Global Payments (GP).<br/>
+            PayPoint Solution does not provide acquiring services, payment processing, settlement, or terminal ownership.<br/>
+            All card payment terminals, merchant acquiring services, settlement timelines, and payment processing are
+            provided directly by <b>Global Payments</b> or its appointed acquiring banks, subject to approval and applicable terms.
+          </span>
+        </div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
           <a href="#top" style="opacity:.9; font-weight:700;">Back to top ↑</a>
         </div>
       </div>
