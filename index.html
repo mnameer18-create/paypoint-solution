@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="PayPoint Solution helps Malaysian businesses accept card payments with fast settlement, transparent MDR, and modern terminals." />
-  <title>PayPoint Solution — Card Payment Terminals</title>
+  <meta name="description" content="PayPoint Solution helps Malaysian businesses onboard to Global Payments (GP) for card acceptance, reliable settlement, and clear MDR proposals." />
+  <title>PayPoint Solution — Powered by Global Payments</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
     :root{
       /* PayPoint Solution brand colours (yellow + black) */
@@ -22,6 +24,7 @@
       --radius: 20px;
       --max: 1120px;
     }
+
     *{box-sizing:border-box}
     html,body{
       margin:0;
@@ -33,22 +36,32 @@
         linear-gradient(180deg, #0b0b0b 0%, #141414 100%);
       overflow-x:hidden;
     }
+
     a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:24px}
 
     /* Top bar */
     .top{
-      position:sticky; top:0; z-index:10;
+      position:sticky;
+      top:0;
+      z-index:10;
       backdrop-filter: blur(12px);
       background: rgba(11,15,26,.75);
       border-bottom:1px solid var(--line);
     }
+
     .nav{
       display:flex;
       align-items:center;
       padding:14px 0;
+      gap:18px;
     }
-    .brand{display:flex; align-items:center;}
+
+    .brand{
+      display:flex;
+      align-items:center;
+    }
+
     .logoImg{
       width:64px;
       height:64px;
@@ -65,13 +78,22 @@
       gap:18px;
       align-items:center;
       flex-wrap:wrap;
-      margin-left:18px;
+      margin-left:4px;
     }
-    .links a{color:rgba(255,255,255,.86); font-weight:700; font-size:14px; opacity:.9}
+
+    .links a{
+      color:rgba(255,255,255,.86);
+      font-weight:700;
+      font-size:14px;
+      opacity:.9
+    }
     .links a:hover{opacity:1}
 
+    /* Buttons */
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       padding:12px 16px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.14);
@@ -81,8 +103,14 @@
       gap:10px;
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
       cursor:pointer;
+      line-height:1;
+      white-space:nowrap;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18)}
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.18)
+    }
     .btn.primary{
       background: linear-gradient(135deg, #f5c400, #ffd84d);
       color:#0b0b0b;
@@ -91,14 +119,14 @@
     }
     .btn.primary:hover{transform: translateY(-2px)}
 
-    /* Top-right floating CTA */
-.top-cta{
-  position: fixed;
-  top: 18px;
-  right: 24px;
-  left: auto;
-  z-index: 20;
-}
+    /* Floating CTA (Top-left) */
+    .top-cta{
+      position: fixed;
+      top: 18px;
+      left: 24px;
+      z-index: 20;
+    }
+
     /* Hero */
     .hero{padding:54px 0 26px}
     .grid{
@@ -107,8 +135,31 @@
       gap:26px;
       align-items:stretch;
     }
+
+    .logoStrip{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin: 6px 0 10px;
+      color: rgba(230,234,242,.78);
+      font-weight:700;
+      font-size:13px;
+    }
+    .logoStrip .sep{opacity:.55}
+
+    .gpLogo{
+      height:28px;
+      width:auto;
+      object-fit:contain;
+      opacity:.95;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,.35));
+    }
+
     .tag{
-      display:inline-flex; align-items:center; gap:10px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
       padding:8px 12px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
@@ -118,11 +169,38 @@
       font-size:13px;
       width: fit-content;
     }
-    .dot{width:8px; height:8px; border-radius:999px; background:var(--accent2); box-shadow: 0 0 0 6px rgba(245,196,0,.15)}
-    h1{font-size: clamp(34px, 4.2vw, 56px); line-height:1.06; margin:14px 0 14px; letter-spacing:-.02em}
-    .sub{font-size:16px; line-height:1.7; color:rgba(230,234,242,.82); margin:0 0 22px}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin: 18px 0 18px}
-    .fine{color:rgba(152,162,179,.95); font-size:13px; line-height:1.6}
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:var(--accent2);
+      box-shadow: 0 0 0 6px rgba(245,196,0,.18);
+    }
+
+    h1{
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height:1.06;
+      margin:14px 0 14px;
+      letter-spacing:-.02em
+    }
+    .sub{
+      font-size:16px;
+      line-height:1.7;
+      color:rgba(230,234,242,.82);
+      margin:0 0 22px
+    }
+    .cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin: 18px 0 18px
+    }
+    .fine{
+      color:rgba(152,162,179,.95);
+      font-size:13px;
+      line-height:1.6
+    }
 
     .heroCard{
       border-radius: var(--radius);
@@ -134,6 +212,7 @@
     }
     .heroCard .pad{padding:18px}
     .miniTitle{font-weight:800; letter-spacing:.2px; margin:0 0 10px}
+
     .kpis{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px}
     .kpi{
       border-radius: 16px;
@@ -143,6 +222,7 @@
     }
     .kpi .big{font-size:22px; font-weight:900; letter-spacing:-.01em}
     .kpi .small{font-size:12px; color:rgba(152,162,179,.95); margin-top:4px}
+
     .diagram{
       display:grid;
       grid-template-columns: 1fr;
@@ -150,7 +230,10 @@
       margin-top:14px;
     }
     .pill{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
       padding:12px 12px;
       border-radius: 16px;
       border: 1px dashed rgba(255,255,255,.18);
@@ -178,14 +261,30 @@
     .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.7}
 
     .two{
-      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
       align-items:stretch;
     }
 
-    /* Pricing */
-    .pricing{
-      display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px;
+    /* “Chips” stats */
+    .pillRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      font-size:12px;
+      font-weight:800;
+      color: rgba(230,234,242,.85)
     }
+    .chip b{color: var(--accent)}
+
+    /* Pricing */
+    .pricing{display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px}
     .price{
       border-radius: var(--radius);
       border:1px solid var(--line);
@@ -194,7 +293,7 @@
       box-shadow: var(--shadow);
     }
     .price.featured{
-      border-color: rgba(245,196,0,.55);
+      border-color: rgba(245,196,0,.45);
       background:
         radial-gradient(600px 200px at 50% 0%, rgba(245,196,0,.18), transparent 60%),
         linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
@@ -203,9 +302,9 @@
       display:inline-flex;
       padding:6px 10px;
       border-radius:999px;
-      background: rgba(245,196,0,.18);
-      border:1px solid rgba(245,196,0,.28);
-      color: rgba(255,255,255,.95);
+      background: rgba(245,196,0,.16);
+      border:1px solid rgba(245,196,0,.25);
+      color: rgba(230,234,242,.95);
       font-weight:800;
       font-size:12px;
       margin-bottom:10px;
@@ -215,7 +314,17 @@
     .rate span{font-size:13px; font-weight:700; color:rgba(152,162,179,.95)}
     ul{margin: 10px 0 0; padding:0; list-style:none; display:grid; gap:10px}
     li{display:flex; gap:10px; align-items:flex-start; color:rgba(230,234,242,.80); font-size:13px; line-height:1.55}
-    .tick{width:18px; height:18px; border-radius:8px; background: rgba(245,196,0,.18); border:1px solid rgba(245,196,0,.25); display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto}
+    .tick{
+      width:18px;
+      height:18px;
+      border-radius:8px;
+      background: rgba(245,196,0,.16);
+      border:1px solid rgba(245,196,0,.25);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto
+    }
 
     /* FAQ */
     details{
@@ -229,10 +338,8 @@
     details p{margin:10px 0 0; color:rgba(230,234,242,.78); line-height:1.7; font-size:13px}
 
     /* Contact */
-    .contact{
-      display:grid; grid-template-columns: 1.05fr .95fr; gap:14px;
-    }
-    form{display:grid; gap:10px;}
+    .contact{display:grid; grid-template-columns: 1.05fr .95fr; gap:14px}
+    form{display:grid; gap:10px}
     input, textarea{
       width:100%;
       padding:12px 12px;
@@ -257,14 +364,12 @@
       .two{grid-template-columns: 1fr;}
       .contact{grid-template-columns: 1fr;}
       .links{display:none}
-      .top-cta{
-  right: 12px;
-  left: auto;
-  top: 12px;
-}
+      .top-cta{left: 12px; top: 12px;}
+      .logoImg{width:52px; height:52px; padding:6px;}
     }
   </style>
 </head>
+
 <body>
   <div class="top">
     <div class="wrap">
@@ -272,8 +377,11 @@
         <a class="brand" href="#top" aria-label="PayPoint Solution home">
           <img class="logoImg" src="Paypoint.png" alt="PayPoint Solution logo" />
         </a>
+
         <div class="links" aria-label="site navigation">
-          <a href="#powered">Powered by GP</a>
+          <a href="#who">GP & PayPoint</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#terminals">Terminals</a>
           <a href="#benefits">Benefits</a>
           <a href="#how">How it works</a>
           <a href="#plans">Plans</a>
@@ -284,32 +392,44 @@
     </div>
   </div>
 
-  <!-- Floating CTA (Top-Left) -->
+  <!-- Floating CTA (Top-left) -->
   <a class="btn primary top-cta" href="#contact">Get MDR proposal →</a>
 
   <main id="top" class="wrap">
     <header class="hero">
       <div class="grid">
         <div>
+          <div class="logoStrip" aria-label="partner logos">
+            <span>Powered by</span>
+            <!-- Upload GP logo to your repo root as: gp-logo.png -->
+            <img class="gpLogo" src="gp-logo.png" alt="Global Payments logo" />
+            <span class="sep">•</span>
+            <span>Onboarded by PayPoint Solution</span>
+          </div>
+
           <div class="tag"><span class="dot" aria-hidden="true"></span> Referral partner for Global Payments (GP) in Malaysia</div>
-          <h1>Get Global Payments-grade terminals.
-            <br/>PayPoint handles the onboarding.</h1>
+
+          <h1>Global Payments is the provider.<br/>PayPoint handles the onboarding.</h1>
+
           <p class="sub">
-            PayPoint Solution is your local point-of-contact to onboard merchants onto <b>Global Payments (GP)</b> — the global payment technology provider that supplies the terminals, processing, settlement and payment rails.
-            We help you compare MDR, collect the required details, and move you to go-live fast — whether you run a café, clinic, retail outlet, or a multi-branch chain.
+            PayPoint Solution is your local point-of-contact to onboard merchants onto <b>Global Payments (GP)</b> — the global commerce and payments technology provider that supplies the
+            payment platform, processing and settlement. We help you compare MDR, collect the required details, and move you to go-live fast.
           </p>
+
           <div class="cta">
             <a class="btn primary" href="#contact">Request MDR proposal</a>
             <a class="btn" href="#plans">See example plans</a>
           </div>
+
           <p class="fine">
-            Typical payout: <b>T+2</b> (subject to approval). <b>PayPoint Solution is a referral/onboarding partner</b>; merchant acquiring, terminals and payment processing are provided by <b>Global Payments</b>.
+            Typical payout: <b>T+2</b> (subject to approval). <b>PayPoint Solution is a referral/onboarding partner</b>; merchant acquiring, terminals and payment processing are provided by <b>Global Payments</b> or its appointed acquiring banks.
           </p>
         </div>
 
         <aside class="heroCard" aria-label="summary card">
           <div class="pad">
             <p class="miniTitle">What you get</p>
+
             <div class="kpis">
               <div class="kpi">
                 <div class="big">Better MDR</div>
@@ -331,7 +451,7 @@
 
             <div class="diagram" aria-label="simple flow">
               <div class="pill">Customer taps / inserts card <span class="arrow">→</span></div>
-              <div class="pill">Terminal approves securely <span class="arrow">→</span></div>
+              <div class="pill">Payment approved securely <span class="arrow">→</span></div>
               <div class="pill">You get paid (T+2) <span class="arrow">✓</span></div>
             </div>
           </div>
@@ -339,80 +459,117 @@
       </div>
     </header>
 
-    <section id="powered">
-      <h2 class="sectionTitle">Powered by Global Payments</h2>
-      <p class="sectionSub">Global scale. Local support. Enterprise-grade reliability — delivered through one simple onboarding with PayPoint.</p>
+    <section id="who">
+      <h2 class="sectionTitle">Global Payments is the main payment provider</h2>
+      <p class="sectionSub">
+        PayPoint Solution is the <b>sales & onboarding referral partner</b>. <b>Global Payments (GP)</b> provides the acquiring, payment processing, settlement, and commerce/payment technology.
+      </p>
 
-      <div class="cards">
+      <div class="two">
         <div class="card">
-          <h3>5M merchant accounts</h3>
-          <p>Trusted at massive scale to keep payments safe and seamless.</p>
-        </div>
-        <div class="card">
-          <h3>73B merchant transactions / year</h3>
-          <p>High-volume processing experience across 100+ industries.</p>
-        </div>
-        <div class="card">
-          <h3>1,500 financial institutions</h3>
-          <p>Deep banking relationships and robust acquiring capabilities.</p>
-        </div>
-      </div>
+          <h3>Who is Global Payments (GP)?</h3>
+          <p>
+            Global Payments is a global commerce and payments technology company. Their Asia-Pacific platform is positioned as a <b>comprehensive commerce platform</b> that connects key parts of commerce—so merchants can run payments across channels and scale with the GP ecosystem.
+          </p>
+          <p class="fine" style="margin-top:10px;">
+            Learn more on GP’s official site:
+            <a href="https://www.globalpayments.com/en-ap" target="_blank" rel="noopener" style="text-decoration:underline; font-weight:800;">globalpayments.com/en-ap →</a>
+          </p>
 
-      <div class="two" style="margin-top:14px;">
-        <div class="card">
-          <h3>Global reach, local support</h3>
-          <p>
-            • Operating in <b>100+</b> countries<br/>
-            • Boots on the ground in <b>38</b> countries<br/>
-            • Fortune <b>500</b> company
-          </p>
+          <div class="pillRow">
+            <span class="chip"><b>5M</b> merchant accounts</span>
+            <span class="chip"><b>73B</b> merchant txns / year</span>
+            <span class="chip"><b>1,500</b> financial institutions</span>
+            <span class="chip"><b>100+</b> countries</span>
+          </div>
         </div>
-        <div class="card">
-          <h3>Supported payment methods (Malaysia)</h3>
-          <p>
-            Visa • Mastercard • UnionPay • JCB<br/>
-            Alipay • WeChat Pay • Apple Pay<br/>
-            (and more options available)
-          </p>
-        </div>
-      </div>
 
-      <div class="two" style="margin-top:14px;">
         <div class="card">
-          <h3>Why Global Payments</h3>
+          <h3>What PayPoint does</h3>
           <p>
-            <b>Stay ahead</b> with agile technology that adapts to changing needs.<br/>
-            <b>Get help</b> every step of the way from experts — wherever you are.<br/>
-            <b>Scale up</b> with the resources and connections of a global leader.
-          </p>
-        </div>
-        <div class="card">
-          <h3>What PayPoint does for you</h3>
-          <p>
-            • Assess your current MDR & monthly volume<br/>
-            • Propose GP-aligned package (best possible outcome)<br/>
-            • Guide documents & onboarding checklist<br/>
+            • Review your current MDR and monthly volume<br/>
+            • Recommend a best-fit GP solution (subject to approval)<br/>
+            • Guide document collection & onboarding checklist<br/>
             • Coordinate setup, training & go-live support
           </p>
+          <div class="hr"></div>
+          <p class="fine">Note: All approvals, acquiring/settlement, and provisioning are under Global Payments or its appointed acquiring banks.</p>
         </div>
       </div>
     </section>
 
+    <section id="solutions">
+      <h2 class="sectionTitle">Solutions available via Global Payments</h2>
+      <p class="sectionSub">Start with in-store acceptance, then add online payments when you’re ready — all under the Global Payments ecosystem.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>In-store payments (POS)</h3>
+          <p>Face-to-face acceptance with terminal options aligned to your environment (counter, table service, mobile use cases).</p>
+        </div>
+        <div class="card">
+          <h3>Online payments & payment gateway</h3>
+          <p>Gateway options such as hosted payments and API integrations for ecommerce checkout and online payment flows.</p>
+        </div>
+        <div class="card">
+          <h3>Virtual terminal</h3>
+          <p>Take payments remotely for phone orders, remote billing, refunds/rebates and reconciliation-friendly reporting.</p>
+        </div>
+      </div>
+
+      <div class="two" style="margin-top:14px;">
+        <div class="card">
+          <h3>Unified / omnichannel commerce</h3>
+          <p>Support customers moving between in-store, online and mobile channels — with consolidated data and insights.</p>
+        </div>
+        <div class="card">
+          <h3>Industry software & business tools</h3>
+          <p>Industry solutions and tools such as reporting and POS systems that can grow with you as operations expand.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="terminals">
+      <h2 class="sectionTitle">Terminal options (powered by Global Payments)</h2>
+      <p class="sectionSub">
+        Global Payments provides a full range of certified card payment terminals. Specific models are proposed during onboarding based on your business needs, environment, and approval outcome.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Smart POS (Android)</h3>
+          <p>Touchscreen Smart POS terminals suitable for counter service, table service, and mobile use. Supports modern payment experiences and future extensibility.</p>
+        </div>
+        <div class="card">
+          <h3>Mobile terminals (SIM / Wi-Fi)</h3>
+          <p>Portable terminals designed for merchants who need flexibility — cafés, delivery teams, pop-ups, events, and service professionals.</p>
+        </div>
+        <div class="card">
+          <h3>Countertop terminals (LAN / Wi-Fi)</h3>
+          <p>Stable countertop devices for fixed cashier locations where reliability and speed are the priority.</p>
+        </div>
+      </div>
+
+      <p class="fine" style="margin-top:12px;">
+        Terminal model availability, features, and pricing are subject to Global Payments approval and acquiring bank requirements.
+      </p>
+    </section>
+
     <section id="benefits">
-      <h2 class="sectionTitle">Why merchants switch to PayPoint Solution</h2>
+      <h2 class="sectionTitle">Why merchants switch via PayPoint Solution</h2>
       <p class="sectionSub">Built for finance teams that care about MDR, settlement reliability, and clean reconciliation.</p>
       <div class="cards">
         <div class="card">
           <h3>Lower total cost</h3>
-          <p>Competitive MDR packages, with options that scale for higher transaction volume and multiple outlets.</p>
+          <p>Competitive MDR proposals, with options that scale for higher volume and multiple outlets.</p>
         </div>
         <div class="card">
           <h3>Reliable settlement</h3>
-          <p>Stability-focused setup guidance (Wi-Fi / SIM / LAN) so you avoid the “can’t settle” nightmare.</p>
+          <p>Stability-focused setup guidance (Wi-Fi / SIM / LAN) so you avoid “can’t settle” headaches.</p>
         </div>
         <div class="card">
           <h3>Multi-outlet rollout</h3>
-          <p>Standardized deployment checklist and merchant onboarding flow to move fast without chaos.</p>
+          <p>Standardized onboarding checklist and rollout flow to move fast without chaos.</p>
         </div>
       </div>
     </section>
@@ -425,15 +582,13 @@
             1) Share your current MDR & monthly volume<br/>
             2) We propose a better package (where possible)<br/>
             3) Submit documents for approval<br/>
-            4) Terminal setup + training<br/>
+            4) Setup + training<br/>
             5) Go live & start accepting cards
           </p>
         </div>
         <div class="card">
           <h3>Best-fit industries</h3>
-          <p>
-            F&B • Retail • Clinics • Beauty • Services • Education • Jewelry • Mini-marts • Multi-branch chains
-          </p>
+          <p>F&B • Retail • Clinics • Beauty • Services • Education • Jewelry • Mini-marts • Multi-branch chains</p>
         </div>
       </div>
     </section>
@@ -441,16 +596,18 @@
     <section id="plans">
       <h2 class="sectionTitle">Example plans (customizable)</h2>
       <p class="sectionSub">Final MDR depends on approval, business type, and transaction volume. These are common starting points.</p>
+
       <div class="pricing">
         <div class="price">
           <h3>Starter</h3>
           <div class="rate">Transparent<span> / simple setup</span></div>
           <ul>
             <li><span class="tick">✓</span> Suitable for single outlet</li>
-            <li><span class="tick">✓</span> Card acceptance terminal</li>
+            <li><span class="tick">✓</span> Card acceptance terminal onboarding</li>
             <li><span class="tick">✓</span> Settlement tracking guidance</li>
           </ul>
         </div>
+
         <div class="price featured">
           <div class="badge">Most Popular</div>
           <h3>Growth</h3>
@@ -461,18 +618,20 @@
             <li><span class="tick">✓</span> Finance-friendly reconciliation tips</li>
           </ul>
         </div>
+
         <div class="price">
           <h3>Enterprise</h3>
           <div class="rate">Custom<span> / chain rollout</span></div>
           <ul>
             <li><span class="tick">✓</span> 10+ outlets</li>
             <li><span class="tick">✓</span> Dedicated rollout checklist</li>
-            <li><span class="tick">✓</span> Optional POS integration discussion</li>
+            <li><span class="tick">✓</span> Optional POS / integration discussion</li>
           </ul>
         </div>
       </div>
+
       <p class="fine" style="margin-top:12px;">
-        Tip: If you have your current provider’s MDR table, send it—we’ll try to beat it (or match + improve service/settlement experience).
+        Tip: If you have your current provider’s MDR table, send it — we’ll try to beat it (or match + improve service/settlement experience).
       </p>
     </section>
 
@@ -489,11 +648,11 @@
         </details>
         <details>
           <summary>Can you support multi-outlet onboarding?</summary>
-          <p>Yes—standard deployment checklist, outlet-by-outlet tracking, and training materials so your team stays aligned.</p>
+          <p>Yes — deployment checklist, outlet-by-outlet tracking guidance, and training materials.</p>
         </details>
         <details>
           <summary>Do you support POS integration?</summary>
-          <p>We can discuss your POS environment and options during onboarding. Some integrations may involve third-party work or fees depending on your POS vendor.</p>
+          <p>We can discuss your POS environment and options during onboarding. Integrations may involve third-party work or fees depending on your POS vendor.</p>
         </details>
       </div>
     </section>
@@ -501,6 +660,7 @@
     <section id="contact">
       <h2 class="sectionTitle">Request a quote</h2>
       <p class="sectionSub">Share the basics and we’ll reply with a proposed MDR package and next steps.</p>
+
       <div class="contact">
         <div class="card">
           <h3>Send your details</h3>
@@ -512,10 +672,12 @@
             <input id="contactName" placeholder="Your name" autocomplete="name" />
             <input id="phone" placeholder="Phone / WhatsApp" autocomplete="tel" />
             <textarea id="note" placeholder="Optional: current MDR table, current provider, pain points (e.g., settlement issues)"></textarea>
+
             <button class="btn primary" id="sendBtn" type="button">Email my request →</button>
             <div class="fine">This opens your email app with a pre-filled message.</div>
           </form>
         </div>
+
         <div class="card">
           <h3>Prefer WhatsApp?</h3>
           <p>
@@ -527,9 +689,11 @@
             <br/><br/>
             <span style="opacity:.9; font-weight:700;">+60 16-660 7698</span>
           </p>
+
           <div class="hr"></div>
+
           <p class="fine">
-            Pro tip: Keep your first reply finance-friendly:
+            Pro tip (finance-friendly):
             <br/>• Ask for current MDR table
             <br/>• Ask for monthly card volume
             <br/>• Confirm payout preference
@@ -553,6 +717,7 @@
             provided directly by <b>Global Payments</b> or its appointed acquiring banks, subject to approval and applicable terms.
           </span>
         </div>
+
         <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
           <a href="#top" style="opacity:.9; font-weight:700;">Back to top ↑</a>
         </div>
@@ -561,8 +726,10 @@
   </main>
 
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Mailto builder (no backend needed)
     const byId = (id) => document.getElementById(id);
     function clean(v){ return (v || '').toString().trim(); }
 
@@ -597,6 +764,7 @@
       return { subject, body: bodyLines.join('\n') };
     }
 
+    // Your email
     const TO_EMAIL = 'mnameer18@gmail.com';
 
     byId('sendBtn').addEventListener('click', () => {
